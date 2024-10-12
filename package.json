@@ -1,5 +1,5 @@
 {
-  "name": "codeblocks-template-uno",
+  "name": "astroV5-tailwindV4-radixColor",
   "private": true,
   "scripts": {
     "build": "turbo build",
