@@ -1,0 +1,122 @@
+---
+const accentColorMap = {
+      amber: "amber",
+      blue: "blue",
+      bronze: "bronze",
+      brown: "brown",
+      crimson: "crimson",
+      cyan: "cyan",
+      gold: "gold",
+      grass: "grass",
+      gray: "gray",
+      green: "green",
+      indigo: "indigo",
+      iris: "iris",
+      jade: "jade",
+      mint: "mint",
+      lime: "lime",
+      orange: "orange",
+      pink: "pink",
+      plum: "plum",
+      purple: "purple",
+      red: "red",
+      ruby: "ruby",
+      sky: "sky",
+      teal: "teal",
+      tomato: "tomato",
+      violet: "violet",
+      yellow: "yellow",
+    }
+---
+<div class="flex gap-2 flex-wrap items-center justify-center p-8">
+{ Object.entries(accentColorMap).map(([key, value]) => (
+  <button class="accent-toggle" data-accent={key}>{key}</button>
+)) }
+</div>
+
+<style> /* ... */ </style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const defaultAccent = "mint";
+    const accent = localStorage.getItem("accent") || defaultAccent;
+    
+    const setAccent = (newAccent: string) => {
+      document.documentElement.dataset.accentColor = newAccent;
+      localStorage.setItem("accent", newAccent);
+    };
+
+    // Set initial accent
+    setAccent(accent);
+
+    const handleToggleClick = (event: MouseEvent) => {
+      const newAccent = (event.target as HTMLElement).dataset.accent ?? defaultAccent;
+      setAccent(newAccent);
+    };
+
+    document.querySelectorAll('.accent-toggle').forEach(button => {
+  button.addEventListener('click', handleToggleClick as EventListener);
+});
+  });
+</script>
+
+<script is:inline>
+    function applyAccent() {
+        localStorage.getItem("accent") === "amber"
+    ? (document.documentElement.dataset.accentColor = "amber")
+    : localStorage.getItem("accent") === "blue"
+    ? (document.documentElement.dataset.accentColor = "blue")
+    : localStorage.getItem("accent") === "bronze"
+    ? (document.documentElement.dataset.accentColor = "bronze")
+    : localStorage.getItem("accent") === "brown"
+    ? (document.documentElement.dataset.accentColor = "brown")
+    : localStorage.getItem("accent") === "crimson"
+    ? (document.documentElement.dataset.accentColor = "crimson")
+    : localStorage.getItem("accent") === "cyan"
+    ? (document.documentElement.dataset.accentColor = "cyan")
+    : localStorage.getItem("accent") === "gold"
+    ? (document.documentElement.dataset.accentColor = "gold")
+    : localStorage.getItem("accent") === "grass"
+    ? (document.documentElement.dataset.accentColor = "grass")
+    : localStorage.getItem("accent") === "gray"
+    ? (document.documentElement.dataset.accentColor = "gray")
+    : localStorage.getItem("accent") === "green"
+    ? (document.documentElement.dataset.accentColor = "green")
+    : localStorage.getItem("accent") === "indigo"
+    ? (document.documentElement.dataset.accentColor = "indigo")
+    : localStorage.getItem("accent") === "iris"
+    ? (document.documentElement.dataset.accentColor = "iris")
+    : localStorage.getItem("accent") === "jade"
+    ? (document.documentElement.dataset.accentColor = "jade")
+    : localStorage.getItem("accent") === "lime"
+    ? (document.documentElement.dataset.accentColor = "lime")
+    : localStorage.getItem("accent") === "mint"
+    ? (document.documentElement.dataset.accentColor = "mint")
+    : localStorage.getItem("accent") === "orange"
+    ? (document.documentElement.dataset.accentColor = "orange")
+    : localStorage.getItem("accent") === "pink"
+    ? (document.documentElement.dataset.accentColor = "pink")
+    : localStorage.getItem("accent") === "plum"
+    ? (document.documentElement.dataset.accentColor = "plum")
+    : localStorage.getItem("accent") === "purple"
+    ? (document.documentElement.dataset.accentColor = "purple")
+    : localStorage.getItem("accent") === "red"
+    ? (document.documentElement.dataset.accentColor = "red")
+    : localStorage.getItem("accent") === "ruby"
+    ? (document.documentElement.dataset.accentColor = "ruby")
+    : localStorage.getItem("accent") === "sky"
+    ? (document.documentElement.dataset.accentColor = "sky")
+    : localStorage.getItem("accent") === "teal"
+    ? (document.documentElement.dataset.accentColor = "teal")
+    : localStorage.getItem("accent") === "tomato"
+    ? (document.documentElement.dataset.accentColor = "tomato")
+    : localStorage.getItem("accent") === "violet"
+    ? (document.documentElement.dataset.accentColor = "violet")
+    : localStorage.getItem("accent") === "yellow"
+    ? (document.documentElement.dataset.accentColor = "yellow")
+    : (document.documentElement.dataset.accentColor = "mint");
+    }
+  
+    document.addEventListener('astro:after-swap', applyAccent);
+    applyAccent();
+</script>

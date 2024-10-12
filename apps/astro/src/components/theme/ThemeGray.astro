@@ -1,0 +1,59 @@
+---
+const grayColorMap = {
+      mauve: "mauve",
+      olive: "olive",
+      sage: "sage",
+      sand: "sand",
+      slate: "slate",
+    }
+---
+<div class="flex gap-2 flex-wrap items-center justify-center p-8">
+{ Object.entries(grayColorMap).map(([key, value]) => (
+  <button class="gray-toggle" data-gray={key}>{key}</button>
+)) }
+</div>
+
+<style> /* ... */ </style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const defaultGray = "mauve";
+    const gray = localStorage.getItem("gray") || defaultGray;
+    
+    const setGray = (newGray: string) => {
+      document.documentElement.dataset.grayColor = newGray;
+      localStorage.setItem("gray", newGray);
+    };
+
+    // Set initial accent
+    setGray(gray);
+
+    const handleToggleClick = (event: MouseEvent) => {
+      const newGray = (event.target as HTMLElement).dataset.gray ?? defaultGray;
+      setGray(newGray);
+    };
+
+    document.querySelectorAll('.gray-toggle').forEach(button => {
+  button.addEventListener('click', handleToggleClick as EventListener);
+});
+  });
+</script>
+
+<script is:inline>
+    function applyGray() {
+        localStorage.getItem("gray") === "mauve"
+    ? (document.documentElement.dataset.grayColor = "mauve")
+    : localStorage.getItem("gray") === "olive"
+    ? (document.documentElement.dataset.grayColor = "olive")
+    : localStorage.getItem("gray") === "sage"
+    ? (document.documentElement.dataset.grayColor = "sage")
+    : localStorage.getItem("gray") === "sand"
+    ? (document.documentElement.dataset.grayColor = "sand")
+    : localStorage.getItem("gray") === "slate"
+    ? (document.documentElement.dataset.grayColor = "slate")
+    : (document.documentElement.dataset.grayColor = "mauve");
+    }
+  
+    document.addEventListener('astro:after-swap', applyGray);
+    applyGray();
+</script>

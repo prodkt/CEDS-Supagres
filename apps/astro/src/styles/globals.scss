@@ -1,0 +1,9 @@
+@import "./base.scss";
+
+body, html {
+    @apply bg-gray-2 text-accent-12 w-full overflow-x-hidden;
+  }
+
+  .accent-toggle, .gray-toggle {
+    @apply bg-gray-3 text-gray-9 px-4 py-2 rounded-lg capitalize;
+  }
