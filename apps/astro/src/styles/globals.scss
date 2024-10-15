@@ -1,5 +1,6 @@
 @import "./base.scss";
-
+@import "../typeface/sans/default/index.scss";
+@import "../typeface/serif/default/index.scss";
 body, html {
     @apply bg-gray-2 text-accent-12 w-full overflow-x-hidden;
   }

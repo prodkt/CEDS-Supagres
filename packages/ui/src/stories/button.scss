@@ -1,0 +1,28 @@
+@import "assets/global.scss";
+
+.storybook-button {
+  display: inline-block;
+  cursor: pointer;
+  border: 0;
+  border-radius: 3em;
+  font-weight: 700;
+  line-height: 1;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.storybook-button--primary {
+  @apply bg-red-12 text-white;
+}
+.storybook-button--secondary {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  background-color: transparent;
+  color: #333;
+}
+.storybook-button--small {
+  @apply px-4 py-2 text-sm;
+}
+.storybook-button--medium {
+  @apply px-5 py-2.5 text-base;
+}
+.storybook-button--large {
+  @apply px-6 py-3 text-lg;
+}
