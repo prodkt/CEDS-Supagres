@@ -1,5 +1,6 @@
 {
-  "name": "astroV5-tailwindV4-radixColor",
+  "name": "CEDS-Supagres",
+  "type": "module",
   "private": true,
   "scripts": {
     "build": "turbo build",
@@ -19,5 +20,10 @@
   "workspaces": [
     "apps/*",
     "packages/*"
+  ],
+  "trustedDependencies": [
+    "core-js-pure",
+    "esbuild",
+    "sharp"
   ]
 }

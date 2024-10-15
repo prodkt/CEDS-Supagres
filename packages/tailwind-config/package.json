@@ -1,0 +1,28 @@
+{
+  "name": "@prodkt/tailwind",
+  "exports": {
+    ".": "./global.scss",
+    "./global.scss": "./global.scss",
+    "./base.scss": "./base.scss",
+    "./index.scss": "./index.scss"
+  },
+  "files": [
+    "./global.scss",
+    "./base.scss",
+    "./index.scss"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.0-alpha.26",
+    "@tailwindcss/postcss": "^4.0.0-alpha.26",
+    "@tailwindcss/vite": "^4.0.0-alpha.26",
+    "react": "^18.2.0",
+    "sass": "^1.79.5",
+    "tailwindcss": "^4.0.0-alpha.26"
+  }
+}

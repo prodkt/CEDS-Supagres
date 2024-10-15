@@ -7,12 +7,18 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "ceds:transformations": "bun ./ceds/scripts/CEDS-IDS-transformations.cjs",
+    "ceds:fkey-check": "bun ./ceds/scripts/CEDS-IDS-getLengthExceedingFkeys.cjs",
+    "supabase:migration-new": "supabase migration new new-migration",
+    "supabase:migration-list": "supabase migration list",
+    "supabase:migration-list-local": "supabase migration list --db-url 'postgres://postgres[:percent_encoded_password]@127.0.0.1[:port]/postgres'"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^3.6.2",
     "@astrojs/tailwind": "^5.1.2",
+    "@prodkt/tailwind": "*",
     "@tailwindcss/postcss": "^4.0.0-alpha.26",
     "@tailwindcss/vite": "^4.0.0-alpha.26",
     "@types/react": "^18.3.11",
